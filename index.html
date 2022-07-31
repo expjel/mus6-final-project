@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Electronic Effects Sound Board</title>
+    <link rel="stylesheet" href="source/style.css" type="text/css">
+</head>
+<body>
+    <main>
+        <audio id="original" src="source/sounds/original.mp3"></audio>
+        <audio id="chorus" src="source/sounds/chorus.mp3"></audio>
+        <audio id="delay" src="source/sounds/delay.mp3"></audio>
+        <audio id="distortion" src="source/sounds/distortion.mp3"></audio>
+        <audio id="lpf" src="source/sounds/lpf.mp3"></audio>
+        <audio id="reverb" src="source/sounds/reverb.mp3"></audio>
+        <h1>An exploration into sound effects</h1>
+        <p>Click the "original" button to hear the original synth sound with no effects added. 
+            Then click the different buttons to hear the synth sound with a particular
+            effect added.
+        </p>
+        <div class="wrapper">
+            <button id='originalBtn'onclick="play()">ORIGINAL</button>
+            <button id='chorusBtn'onclick="play()">CHORUS</button>
+            <button id='delayBtn'onclick="play()">DELAY</button>
+            <button id='distBtn'onclick="play()">DISTORTION</button>
+            <button id='lpfBtn'onclick="play()">LOW PASS FILTER</button>
+            <button id='reverbBtn'onclick="play()">REVERB</button>
+        </div>
+    </main>
+    <script>
+        function play() {
+            let allAudio = document.querySelectorAll('audio');
+            for (const clip of allAudio) {
+                clip.pause();
+                clip.currentTime = 0;
+            }
+            if (event.target.id == 'originalBtn') {
+                document.getElementById('original').play();
+            }
+            if (event.target.id == 'chorusBtn') {
+                document.getElementById('chorus').play();
+            }
+            if (event.target.id == 'delayBtn') {
+                document.getElementById('delay').play();
+            }
+            if (event.target.id == 'distBtn') {
+                document.getElementById('distortion').play();
+            }
+            if (event.target.id == 'lpfBtn') {
+                document.getElementById('lpf').play();
+            }
+            if (event.target.id == 'reverbBtn') {
+                document.getElementById('reverb').play();
+            }
+        }
+    </script>
+</body>
+</html>
